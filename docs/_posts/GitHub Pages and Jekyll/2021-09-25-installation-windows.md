@@ -3,6 +3,7 @@ layout: post
 title:  "Installation on Windows"
 category: "GitHub Pages and Jekyll"
 date:   2021-09-25 00:29:30 +0700
+permalink: /github-pages-and-jekyll/installation-windows.html
 ---
 
 ## Install Requirements

@@ -3,6 +3,7 @@ layout: post
 title:  "Creating Posts"
 category: "GitHub Pages and Jekyll"
 date:   2021-09-25 01:29:30 +0700
+permalink: /github-pages-and-jekyll/creating-posts.html
 ---
 
 ## The Posts Folder

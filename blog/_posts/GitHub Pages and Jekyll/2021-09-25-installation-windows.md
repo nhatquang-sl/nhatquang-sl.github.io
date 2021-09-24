@@ -2,6 +2,7 @@
 layout: post
 title:  "Installation on Windows"
 category: "GitHub Pages and Jekyll"
+date:   2021-09-25 00:29:30 +0700
 ---
 
 ## Install Requirements
@@ -38,5 +39,6 @@ bundle exec jekyll serve
 ```
 6. Browse to http://localhost:4000
 
-
-
+## Reference
+- [Jekyll on Windows](https://jekyllrb.com/docs/installation/windows/)
+- [Quickstart](https://jekyllrb.com/docs/)

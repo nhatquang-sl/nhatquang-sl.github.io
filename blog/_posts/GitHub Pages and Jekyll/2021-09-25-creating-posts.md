@@ -2,6 +2,7 @@
 layout: post
 title:  "Creating Posts"
 category: "GitHub Pages and Jekyll"
+date:   2021-09-25 01:29:30 +0700
 ---
 
 ## The Posts Folder
@@ -65,3 +66,6 @@ Therefore, depending on whether front matter has `category: GitHub Pages and Jek
 ## Custom
 But I don't want organize the categories above the `_post`, I want put all the categories under the `_post` folder.
 For example, if a post is at path `_posts/GitHub Pages and Jekyll/2021-09-25-creating-posts.md`. But in this case the Jekyll cannot find our posts, so that we need to add the `category: "GitHub Pages and Jekyll"` to the front matter. And we have the URL like `github%20pages%20and%20jekyll/2021/09/25/installation-windows.html`.
+
+## Reference
+- [Posts](https://jekyllrb.com/docs/posts/)

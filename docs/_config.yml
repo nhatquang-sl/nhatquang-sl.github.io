@@ -52,8 +52,8 @@ plugins:
 #   - vendor/gems/
 #   - vendor/ruby/
 permalink: /:slugified_categories/:title:output_ext
-# defaults:
-#   - scope:
-#       path: "assets/img"
-#     values:
-#       image: true
+defaults:
+  - scope:
+      path: "assets/img"
+    values:
+      image: true

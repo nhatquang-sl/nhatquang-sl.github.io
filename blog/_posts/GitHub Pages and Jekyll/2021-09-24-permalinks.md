@@ -2,7 +2,7 @@
 layout: post
 title:  "Permalinks"
 category: "GitHub Pages and Jekyll"
-date:   2021-09-25 02:29:30 +0700
+date:   2021-09-24 00:00:00 +0700
 ---
 
 Permalinks are the output path for your pages, posts, or collections. They allow you to structure the directories of your source code different from the directories in your output.

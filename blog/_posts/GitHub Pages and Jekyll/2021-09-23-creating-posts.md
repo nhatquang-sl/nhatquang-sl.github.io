@@ -2,7 +2,7 @@
 layout: post
 title:  "Creating Posts"
 category: "GitHub Pages and Jekyll"
-date:   2021-09-25 01:29:30 +0700
+date:   2021-09-23 00:00:00 +0700
 ---
 
 ## The Posts Folder

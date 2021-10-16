@@ -40,7 +40,7 @@ There is one placeholder that I prefer to use is `slugified_categories`.
 
 The `slugified_categories` is only supported by Jekyll version `4.1`, but the GitHub Pages support Jekyll version `3.9.0`.
 
-We can solve this problem by using [GitHub Actions]({% post_url 2021-09-25-github-actions %})
+We can solve this problem by using [GitHub Actions]({% link _posts/GitHub Pages and Jekyll/2021-09-25-github-actions.md %})
 
 ## Reference
 - [Permalinks](https://jekyllrb.com/docs/permalinks/)

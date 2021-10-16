@@ -23,17 +23,24 @@ Setting a permalink in front matter for every page on your site is no fun. Lucki
 
 To set a global `permalink`, you use the permalink variable in `_config.yml`. You can use placeholders to your desired output. For example:
 ```
-permalink: /:categories/:year/:month/:day/:title:output_ext
+permalink: /:slugified_categories/:title
 ```
 
 ## Placeholders
-Here's the full list of placeholders available: https://jekyllrb.com/docs/permalinks/#placeholders
+Here's the full list of placeholders available: [Placeholders](https://jekyllrb.com/docs/permalinks/#placeholders)
 
 There is one placeholder that I prefer to use is `slugified_categories`.
 
 >The specified categories for this post but slugified. If a category is a composite of multiple words, Jekyll will downcase all alphabets and replace any non-alphanumeric character with a hyphen. (e.g. ``"Work 2 Progress"`` will be converted into ``"work-2-progress"``)
 >
 >If a post has multiple categories, Jekyll will create a hierarchy (e.g. ``/work-2-progress/category2``). Also Jekyll automatically parses out double slashes in the URLs, so if no categories are present, it will ignore this.
+
+## Problem
+![shot_211015_150453](../../assets/img/github-pages-and-jekyll/shot_211015_150453.png)
+
+The `slugified_categories` is only supported by Jekyll version `4.1`, but the GitHub Pages support Jekyll version `3.9.0`.
+
+We can solve this problem by using [GitHub Actions]({% post_url 2021-09-25-github-actions %})
 
 ## Reference
 - [Permalinks](https://jekyllrb.com/docs/permalinks/)

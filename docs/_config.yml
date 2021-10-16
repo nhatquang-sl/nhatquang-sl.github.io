@@ -51,7 +51,7 @@ plugins:
 #   - vendor/cache/
 #   - vendor/gems/
 #   - vendor/ruby/
-permalink: /:slugified_categories/:title:output_ext
+permalink: /:slugified_categories/:title
 defaults:
   - scope:
       path: "assets/img"

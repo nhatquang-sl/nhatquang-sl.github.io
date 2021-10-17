@@ -59,14 +59,14 @@ next_post = post %}
 </article>
 
 {% if prev_post %}
-    <div class="article__previous">
+    <div class="article-previous">
         <a href="{{ prev_post.url }}">
             <span class="iconify-inline" data-icon="akar-icons:arrow-left"></span>
             &nbsp;&nbsp;&nbsp;&nbsp;{{ prev_post.title }}</a>
     </div>
 {% endif %}
 {% if next_post %}
-    <div class="article__next">
+    <div class="article-next">
         <a href="{{ next_post.url }}">
             {{ next_post.title }}&nbsp;&nbsp;&nbsp;&nbsp;
             <span class="iconify-inline" data-icon="akar-icons:arrow-right"></span>

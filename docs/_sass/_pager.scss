@@ -1,0 +1,11 @@
+.article-previous,
+.article-next {
+  display: inline;
+  a {
+    text-decoration: none;
+  }
+}
+
+.article-next {
+  float: right;
+}

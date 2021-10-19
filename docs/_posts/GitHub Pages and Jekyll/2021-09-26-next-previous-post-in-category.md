@@ -206,5 +206,6 @@ sass:
 
 7. Finally we will get the result.  
 ![shot_211018_225404](../../assets/img/github-pages-and-jekyll/shot_211018_225404.png)
+
 ## Reference
 - [Overriding theme defaults](https://jekyllrb.com/docs/themes/#overriding-theme-defaults)

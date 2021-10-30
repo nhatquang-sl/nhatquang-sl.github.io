@@ -1,0 +1,7 @@
+.article-previous, .article-next { display: inline; }
+
+.article-previous a, .article-next a { text-decoration: none; }
+
+.article-next { float: right; }
+
+/*# sourceMappingURL=styles.css.map */

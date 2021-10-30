@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1"><!-- Begin Jekyll SEO tag v2.7.1 -->
+<title>GitHub Actions | Quang’s Tech Blog</title>
+<meta name="generator" content="Jekyll v4.2.0" />
+<meta property="og:title" content="GitHub Actions" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="When building a Jekyll site with GitHub Pages, the standard flow is restricted for security reasons and to make it simpler to get a site setup. For more control over the build and still host the site with GitHub Pages you can use GitHub Actions." />
+<meta property="og:description" content="When building a Jekyll site with GitHub Pages, the standard flow is restricted for security reasons and to make it simpler to get a site setup. For more control over the build and still host the site with GitHub Pages you can use GitHub Actions." />
+<link rel="canonical" href="/github-pages-and-jekyll/github-actions" />
+<meta property="og:url" content="/github-pages-and-jekyll/github-actions" />
+<meta property="og:site_name" content="Quang’s Tech Blog" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2021-09-24T17:00:00+00:00" />
+<meta name="twitter:card" content="summary" />
+<meta property="twitter:title" content="GitHub Actions" />
+<script type="application/ld+json">
+{"description":"When building a Jekyll site with GitHub Pages, the standard flow is restricted for security reasons and to make it simpler to get a site setup. For more control over the build and still host the site with GitHub Pages you can use GitHub Actions.","url":"/github-pages-and-jekyll/github-actions","@type":"BlogPosting","headline":"GitHub Actions","dateModified":"2021-09-24T17:00:00+00:00","datePublished":"2021-09-24T17:00:00+00:00","mainEntityOfPage":{"@type":"WebPage","@id":"/github-pages-and-jekyll/github-actions"},"@context":"https://schema.org"}</script>
+<!-- End Jekyll SEO tag -->
+<link rel="stylesheet" href="/assets/main.css"><link type="application/atom+xml" rel="alternate" href="/feed.xml" title="Quang's Tech Blog" /></head>
+<link rel="stylesheet" type="text/css" href="/assets/css/styles.css"/>
+    <body><header class="site-header" role="banner">
+
+  <div class="wrapper"><a class="site-title" rel="author" href="/">Quang&#39;s Tech Blog</a><nav class="site-nav">
+        <input type="checkbox" id="nav-trigger" class="nav-trigger" />
+        <label for="nav-trigger">
+          <span class="menu-icon">
+            <svg viewBox="0 0 18 15" width="18px" height="15px">
+              <path d="M18,1.484c0,0.82-0.665,1.484-1.484,1.484H1.484C0.665,2.969,0,2.304,0,1.484l0,0C0,0.665,0.665,0,1.484,0 h15.032C17.335,0,18,0.665,18,1.484L18,1.484z M18,7.516C18,8.335,17.335,9,16.516,9H1.484C0.665,9,0,8.335,0,7.516l0,0 c0-0.82,0.665-1.484,1.484-1.484h15.032C17.335,6.031,18,6.696,18,7.516L18,7.516z M18,13.516C18,14.335,17.335,15,16.516,15H1.484 C0.665,15,0,14.335,0,13.516l0,0c0-0.82,0.665-1.483,1.484-1.483h15.032C17.335,12.031,18,12.695,18,13.516L18,13.516z"/>
+            </svg>
+          </span>
+        </label>
+
+        <div class="trigger"><a class="page-link" href="/about/">About</a></div>
+      </nav></div>
+</header>
+<main aria-label="Content" class="page-content">
+            <div class="wrapper">
+                
+
+
+
+<article class="post h-entry" itemscope itemtype="http://schema.org/BlogPosting">
+    <header class="post-header">
+        <h1 class="post-title p-name" itemprop="name headline">GitHub Actions</h1>
+        <!-- <p class="post-meta">
+      <time class="dt-published" datetime="2021-09-24T17:00:00+00:00" itemprop="datePublished">Sep 24, 2021
+      </time></p> -->
+    </header>
+
+    
+        <div class="article-previous">
+            <a href="/github-pages-and-jekyll/permalinks">
+                <span class="iconify-inline" data-icon="akar-icons:arrow-left"></span>
+                &nbsp;&nbsp;&nbsp;&nbsp;Permalinks</a>
+        </div>
+    
+    
+        <div class="article-next">
+            <a href="/github-pages-and-jekyll/next-previous-post-in-category">
+                Link to Next/Previous post in a category&nbsp;&nbsp;&nbsp;&nbsp;
+                <span class="iconify-inline" data-icon="akar-icons:arrow-right"></span>
+            </a>
+        </div>
+    
+    <div class="post-content e-content" itemprop="articleBody"><p>When building a Jekyll site with GitHub Pages, the standard flow is restricted for security reasons and to make it simpler to get a site setup. For more control over the build and still host the site with GitHub Pages you can use GitHub Actions.</p>
+
+<p>Jekyll version — Instead of using the currently enabled version at <code class="language-plaintext highlighter-rouge">3.9.0</code>, you can use any version of Jekyll you want. For example <code class="language-plaintext highlighter-rouge">4.2.1</code>, or point directly to the repository.</p>
+
+<h2 id="setting-up-the-actionpermalink">Setting up the ActionPermalink</h2>
+<p>GitHub Actions are registered for a repository by using a YAML file inside the directory path <code class="language-plaintext highlighter-rouge">.github/workflows</code>.</p>
+
+<p>Create a <strong>workflow file</strong>, say <code class="language-plaintext highlighter-rouge">github-pages.yml</code>, using either the GitHub interface or by pushing a YAML file to the workflow directory path manually. The base contents are:</p>
+
+<div class="language-yml highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="na">name</span><span class="pi">:</span> <span class="s">Build and deploy Jekyll site to GitHub Pages</span>
+<span class="na">on</span><span class="pi">:</span>
+  <span class="na">push</span><span class="pi">:</span>
+    <span class="na">branches</span><span class="pi">:</span>
+      <span class="pi">-</span> <span class="s">master</span>
+<span class="na">jobs</span><span class="pi">:</span>
+  <span class="na">github-pages</span><span class="pi">:</span>
+    <span class="na">runs-on</span><span class="pi">:</span> <span class="s">ubuntu-latest</span>
+    <span class="na">steps</span><span class="pi">:</span>
+    <span class="pi">-</span> <span class="na">uses</span><span class="pi">:</span> <span class="s">actions/checkout@v2</span>
+
+    <span class="c1"># Use GitHub Actions' cache to shorten build times and decrease load on servers</span>
+    <span class="pi">-</span> <span class="na">uses</span><span class="pi">:</span> <span class="s">actions/cache@v2</span>
+      <span class="na">with</span><span class="pi">:</span>
+        <span class="na">path</span><span class="pi">:</span> <span class="s">vendor/bundle</span>
+        <span class="na">key</span><span class="pi">:</span> <span class="s">${{ runner.os }}-gems-${{ hashFiles('**/Gemfile') }}</span>
+        <span class="na">restore-keys</span><span class="pi">:</span> <span class="pi">|</span>
+          <span class="s">${{ runner.os }}-gems-</span>
+
+    <span class="c1"># Specify the Jekyll source location as a parameter</span>
+    <span class="c1"># Specify the target branch (optional)</span>
+    <span class="pi">-</span> <span class="na">uses</span><span class="pi">:</span> <span class="s">helaili/jekyll-action@v2</span>
+      <span class="na">with</span><span class="pi">:</span>
+        <span class="na">token</span><span class="pi">:</span> <span class="s">$</span>
+        <span class="na">jekyll_src</span><span class="pi">:</span> <span class="s1">'</span><span class="s">docs'</span>
+        <span class="na">target_branch</span><span class="pi">:</span> <span class="s1">'</span><span class="s">gh-pages'</span>
+</code></pre></div></div>
+<p>The above workflow can be explained as the following:</p>
+<ul>
+  <li>We trigger the build using <strong>on.push</strong> condition for <code class="language-plaintext highlighter-rouge">master</code> branch only - this prevents the Action from overwriting the <code class="language-plaintext highlighter-rouge">gh-pages</code> branch on any feature branch pushes.</li>
+  <li>The <strong>name</strong> of the job matches our YAML filename: <code class="language-plaintext highlighter-rouge">github-pages</code>.</li>
+  <li>The <strong>checkout</strong> action takes care of cloning your repository.</li>
+  <li>We specify our selected <strong>action</strong> and <strong>version number</strong> using <code class="language-plaintext highlighter-rouge">helaili/jekyll-action@2.0.5</code>. This handles the build and deploy.
+    <ul>
+      <li><strong>jekyll_src</strong>: The Jekyll website source directory.</li>
+      <li><strong>target_branch</strong>: The target branch name the sources get pushed to.</li>
+    </ul>
+  </li>
+</ul>
+
+<h2 id="build-and-deploy">Build and Deploy</h2>
+<p>On pushing any local changes onto <code class="language-plaintext highlighter-rouge">master</code>, the action will be triggered and the build will start.</p>
+
+<p>To watch the progress and see any build errors, check on the build status using one of the following approaches:</p>
+<ul>
+  <li><strong>View by commit</strong>: Go to the repository level view in GitHub. Under the most recent commit (near the top) you’ll see a <strong>status symbol</strong> next to the commit message as a tick or X. Hover over it and click the <strong>details</strong> link.</li>
+  <li><strong>Actions tab</strong>: Go to the repository’s Action tab. Click on the <code class="language-plaintext highlighter-rouge">jekyll</code> workflow tab.</li>
+</ul>
+
+<h2 id="update-github-pages">Update GitHub Pages</h2>
+<p><strong>Update Source folder to point to the root folder</strong><br />
+<img src="../../assets/img/github-pages-and-jekyll/shot_211016_084408.png" alt="shot_211016_084408" /></p>
+
+<h2 id="reference">Reference</h2>
+<ul>
+  <li><a href="https://jekyllrb.com/docs/continuous-integration/github-actions/">GitHub Actions</a></li>
+  <li><a href="https://github.com/marketplace/actions/jekyll-actions">Jekyll Actions</a></li>
+</ul>
+</div><a class="u-url" href="/github-pages-and-jekyll/github-actions"></a>
+</article>
+
+
+    <div class="article-previous">
+        <a href="/github-pages-and-jekyll/permalinks">
+            <span class="iconify-inline" data-icon="akar-icons:arrow-left"></span>
+            &nbsp;&nbsp;&nbsp;&nbsp;Permalinks</a>
+    </div>
+
+
+    <div class="article-next">
+        <a href="/github-pages-and-jekyll/next-previous-post-in-category">
+            Link to Next/Previous post in a category&nbsp;&nbsp;&nbsp;&nbsp;
+            <span class="iconify-inline" data-icon="akar-icons:arrow-right"></span>
+        </a>
+    </div>
+
+            </div>
+        </main><footer class="site-footer h-card">
+  <data class="u-url" href="/"></data>
+
+  <div class="wrapper">
+
+    <h2 class="footer-heading">Quang&#39;s Tech Blog</h2>
+
+    <div class="footer-col-wrapper">
+      <div class="footer-col footer-col-1">
+        <ul class="contact-list">
+          <li class="p-name">Quang&#39;s Tech Blog</li><li><a class="u-email" href="mailto:quang.sunlight@gmail.com">quang.sunlight@gmail.com</a></li></ul>
+      </div>
+
+      <div class="footer-col footer-col-2"><ul class="social-media-list"><li><a href="https://www.facebook.com/QuangSunlight"><svg class="svg-icon"><use xlink:href="/assets/minima-social-icons.svg#facebook"></use></svg> <span class="username">QuangSunlight</span></a></li><li><a href="https://github.com/nhatquang-sl"><svg class="svg-icon"><use xlink:href="/assets/minima-social-icons.svg#github"></use></svg> <span class="username">nhatquang-sl</span></a></li></ul>
+</div>
+
+      <div class="footer-col footer-col-3">
+        <p>My notes about technical that I learned.</p>
+      </div>
+    </div>
+
+  </div>
+
+</footer>
+</body>
+    <script src="https://code.iconify.design/2/2.0.3/iconify.min.js"></script>
+</html>

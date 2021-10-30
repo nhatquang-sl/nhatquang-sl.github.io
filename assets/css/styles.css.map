@@ -1,0 +1,14 @@
+{
+	"version": 3,
+	"file": "styles.css",
+	"sources": [
+		"styles.scss",
+		"_sass/_pager.scss"
+	],
+	"sourcesContent": [
+		"@import \"pager\";",
+		".article-previous,\n.article-next {\n  display: inline;\n  a {\n    text-decoration: none;\n  }\n}\n\n.article-next {\n  float: right;\n}\n"
+	],
+	"names": [],
+	"mappings": "ACAA,AAAA,iBAAiB,EACjB,aAAa,CAAC,EACZ,OAAO,EAAE,MAAM,GAIhB;;AAND,AAGE,iBAHe,CAGf,CAAC,EAFH,aAAa,CAEX,CAAC,CAAC,EACA,eAAe,EAAE,IAAI,GACtB;;AAGH,AAAA,aAAa,CAAC,EACZ,KAAK,EAAE,KAAK,GACb"
+}

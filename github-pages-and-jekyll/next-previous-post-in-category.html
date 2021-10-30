@@ -1,0 +1,315 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1"><!-- Begin Jekyll SEO tag v2.7.1 -->
+<title>Link to Next/Previous post in a category | Quang’s Tech Blog</title>
+<meta name="generator" content="Jekyll v4.2.0" />
+<meta property="og:title" content="Link to Next/Previous post in a category" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="When in a post, we usually need to go next/back to another post. So it would be great if our post has links to next/previous post." />
+<meta property="og:description" content="When in a post, we usually need to go next/back to another post. So it would be great if our post has links to next/previous post." />
+<link rel="canonical" href="/github-pages-and-jekyll/next-previous-post-in-category" />
+<meta property="og:url" content="/github-pages-and-jekyll/next-previous-post-in-category" />
+<meta property="og:site_name" content="Quang’s Tech Blog" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2021-09-25T17:00:00+00:00" />
+<meta name="twitter:card" content="summary" />
+<meta property="twitter:title" content="Link to Next/Previous post in a category" />
+<script type="application/ld+json">
+{"description":"When in a post, we usually need to go next/back to another post. So it would be great if our post has links to next/previous post.","url":"/github-pages-and-jekyll/next-previous-post-in-category","@type":"BlogPosting","headline":"Link to Next/Previous post in a category","dateModified":"2021-09-25T17:00:00+00:00","datePublished":"2021-09-25T17:00:00+00:00","mainEntityOfPage":{"@type":"WebPage","@id":"/github-pages-and-jekyll/next-previous-post-in-category"},"@context":"https://schema.org"}</script>
+<!-- End Jekyll SEO tag -->
+<link rel="stylesheet" href="/assets/main.css"><link type="application/atom+xml" rel="alternate" href="/feed.xml" title="Quang's Tech Blog" /></head>
+<link rel="stylesheet" type="text/css" href="/assets/css/styles.css"/>
+    <body><header class="site-header" role="banner">
+
+  <div class="wrapper"><a class="site-title" rel="author" href="/">Quang&#39;s Tech Blog</a><nav class="site-nav">
+        <input type="checkbox" id="nav-trigger" class="nav-trigger" />
+        <label for="nav-trigger">
+          <span class="menu-icon">
+            <svg viewBox="0 0 18 15" width="18px" height="15px">
+              <path d="M18,1.484c0,0.82-0.665,1.484-1.484,1.484H1.484C0.665,2.969,0,2.304,0,1.484l0,0C0,0.665,0.665,0,1.484,0 h15.032C17.335,0,18,0.665,18,1.484L18,1.484z M18,7.516C18,8.335,17.335,9,16.516,9H1.484C0.665,9,0,8.335,0,7.516l0,0 c0-0.82,0.665-1.484,1.484-1.484h15.032C17.335,6.031,18,6.696,18,7.516L18,7.516z M18,13.516C18,14.335,17.335,15,16.516,15H1.484 C0.665,15,0,14.335,0,13.516l0,0c0-0.82,0.665-1.483,1.484-1.483h15.032C17.335,12.031,18,12.695,18,13.516L18,13.516z"/>
+            </svg>
+          </span>
+        </label>
+
+        <div class="trigger"><a class="page-link" href="/about/">About</a></div>
+      </nav></div>
+</header>
+<main aria-label="Content" class="page-content">
+            <div class="wrapper">
+                
+
+
+
+<article class="post h-entry" itemscope itemtype="http://schema.org/BlogPosting">
+    <header class="post-header">
+        <h1 class="post-title p-name" itemprop="name headline">Link to Next/Previous post in a category</h1>
+        <!-- <p class="post-meta">
+      <time class="dt-published" datetime="2021-09-25T17:00:00+00:00" itemprop="datePublished">Sep 25, 2021
+      </time></p> -->
+    </header>
+
+    
+        <div class="article-previous">
+            <a href="/github-pages-and-jekyll/github-actions">
+                <span class="iconify-inline" data-icon="akar-icons:arrow-left"></span>
+                &nbsp;&nbsp;&nbsp;&nbsp;GitHub Actions</a>
+        </div>
+    
+    
+    <div class="post-content e-content" itemprop="articleBody"><p>When in a post, we usually need to go next/back to another post. So it would be great if our post has links to next/previous post.</p>
+
+<h2 id="get-the-nextprevious-post-link">Get the Next/Previous post link</h2>
+<p>Use the following code to get the next/previous post link then assign to <code class="language-plaintext highlighter-rouge">next_post</code>/<code class="language-plaintext highlighter-rouge">prev_post</code>.</p>
+<div class="language-liquid highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
+    <span class="p">{%</span><span class="w"> </span><span class="nt">assign</span><span class="w"> </span><span class="nv">cat</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nv">page</span><span class="p">.</span><span class="nv">category</span><span class="w"> </span><span class="p">%}</span>
+    <span class="p">{%</span><span class="w"> </span><span class="nt">for</span><span class="w"> </span><span class="nv">post</span><span class="w"> </span><span class="nt">in</span><span class="w"> </span><span class="nv">site.categories[cat]</span><span class="w"> </span><span class="p">%}</span>
+        <span class="p">{%</span><span class="w"> </span><span class="kr">if</span><span class="w"> </span><span class="nv">post</span><span class="p">.</span><span class="nv">url</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="nv">page</span><span class="p">.</span><span class="nv">url</span><span class="w"> </span><span class="p">%}</span>
+            <span class="p">{%</span><span class="w"> </span><span class="nt">assign</span><span class="w"> </span><span class="nv">post_index0</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">forloop.index0</span><span class="w"> </span><span class="p">%}</span>
+            <span class="p">{%</span><span class="w"> </span><span class="nt">assign</span><span class="w"> </span><span class="nv">post_index1</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">forloop.index</span><span class="w"> </span><span class="p">%}</span>
+        <span class="p">{%</span><span class="w"> </span><span class="kr">endif</span><span class="w"> </span><span class="p">%}</span>
+    <span class="p">{%</span><span class="w"> </span><span class="nt">endfor</span><span class="w"> </span><span class="p">%}</span>
+    <span class="p">{%</span><span class="w"> </span><span class="nt">for</span><span class="w"> </span><span class="nv">post</span><span class="w"> </span><span class="nt">in</span><span class="w"> </span><span class="nv">site.categories[cat]</span><span class="w"> </span><span class="p">%}</span>
+        <span class="p">{%</span><span class="w"> </span><span class="kr">if</span><span class="w"> </span><span class="nv">post_index0</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="nb">forloop.index</span><span class="w"> </span><span class="p">%}</span>
+            <span class="p">{%</span><span class="w"> </span><span class="nt">assign</span><span class="w"> </span><span class="nv">next_post</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nv">post</span><span class="w"> </span><span class="p">%}</span>
+        <span class="p">{%</span><span class="w"> </span><span class="kr">endif</span><span class="w"> </span><span class="p">%}</span>
+        <span class="p">{%</span><span class="w"> </span><span class="kr">if</span><span class="w"> </span><span class="nv">post_index1</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="nb">forloop.index0</span><span class="w"> </span><span class="p">%}</span>
+            <span class="p">{%</span><span class="w"> </span><span class="nt">assign</span><span class="w"> </span><span class="nv">prev_post</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nv">post</span><span class="w"> </span><span class="p">%}</span>
+        <span class="p">{%</span><span class="w"> </span><span class="kr">endif</span><span class="w"> </span><span class="p">%}</span>
+    <span class="p">{%</span><span class="w"> </span><span class="nt">endfor</span><span class="w"> </span><span class="p">%}</span>
+
+</code></pre></div></div>
+
+<h2 id="display-the-nextprevious-post-link">Display the Next/Previous post link</h2>
+<p>Use the following code to display the next/previous post.</p>
+<div class="language-liquid highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
+    <span class="p">{%</span><span class="w"> </span><span class="kr">if</span><span class="w"> </span><span class="nv">prev_post</span><span class="w"> </span><span class="p">%}</span>
+        &lt;div class="article-previous"&gt;
+            &lt;a href="<span class="p">{{</span><span class="w"> </span><span class="nv">prev_post</span><span class="p">.</span><span class="nv">url</span><span class="w"> </span><span class="p">}}</span>"&gt;
+                &lt;span class="iconify-inline" data-icon="akar-icons:arrow-left"&gt;&lt;/span&gt;
+                &amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;<span class="p">{{</span><span class="w"> </span><span class="nv">prev_post</span><span class="p">.</span><span class="nv">title</span><span class="w"> </span><span class="p">}}</span>&lt;/a&gt;
+        &lt;/div&gt;
+    <span class="p">{%</span><span class="w"> </span><span class="kr">endif</span><span class="w"> </span><span class="p">%}</span>
+    <span class="p">{%</span><span class="w"> </span><span class="kr">if</span><span class="w"> </span><span class="nv">next_post</span><span class="w"> </span><span class="p">%}</span>
+        &lt;div class="article-next"&gt;
+            &lt;a href="<span class="p">{{</span><span class="w"> </span><span class="nv">next_post</span><span class="p">.</span><span class="nv">url</span><span class="w"> </span><span class="p">}}</span>"&gt;
+                <span class="p">{{</span><span class="w"> </span><span class="nv">next_post</span><span class="p">.</span><span class="nv">title</span><span class="w"> </span><span class="p">}}</span>&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;
+                &lt;span class="iconify-inline" data-icon="akar-icons:arrow-right"&gt;&lt;/span&gt;
+            &lt;/a&gt;
+        &lt;/div&gt;
+    <span class="p">{%</span><span class="w"> </span><span class="kr">endif</span><span class="w"> </span><span class="p">%}</span>
+
+</code></pre></div></div>
+
+<h2 id="add-links-to-post-layout">Add links to Post layout</h2>
+<p>Now I want to add the next/previous post link to the Post layout so that these links will display as default for all posts. So that we will override the Post layout.</p>
+
+<ol>
+  <li>
+    <p>Create a <code class="language-plaintext highlighter-rouge">_layouts</code> folder under <code class="language-plaintext highlighter-rouge">docs</code> folder.</p>
+  </li>
+  <li>
+    <p>Get the theme path, run <code class="language-plaintext highlighter-rouge">bundle info --path</code> followed by the name of the theme’s gem, e.g., <code class="language-plaintext highlighter-rouge">bundle info --path minima</code> for Jekyll’s default theme.</p>
+  </li>
+  <li>Browse to the theme path, you will see the following structure folders.
+    <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>.
+├── LICENSE.txt
+├── README.md
+├── _includes
+│   ├── disqus_comments.html
+│   ├── footer.html
+│   ├── google-analytics.html
+│   ├── head.html
+│   ├── header.html
+│   ├── icon-github.html
+│   ├── icon-github.svg
+│   ├── icon-twitter.html
+│   └── icon-twitter.svg
+├── _layouts
+│   ├── default.html
+│   ├── home.html
+│   ├── page.html
+│   └── post.html
+├── _sass
+│   ├── minima
+│   │   ├── _base.scss
+│   │   ├── _layout.scss
+│   │   └── _syntax-highlighting.scss
+│   └── minima.scss
+└── assets
+ └── main.scss
+</code></pre></div>    </div>
+  </li>
+  <li>
+    <p>Copy the <code class="language-plaintext highlighter-rouge">post.html</code> to our <code class="language-plaintext highlighter-rouge">_layouts</code> folder.</p>
+  </li>
+  <li>Update the <code class="language-plaintext highlighter-rouge">post.html</code> file to display next/previous post link as the following:</li>
+</ol>
+
+<div class="language-liquid highlighter-rouge"><div class="highlight"><pre class="highlight"><code>---
+layout: default
+---
+
+<span class="p">{%</span><span class="w"> </span><span class="nt">assign</span><span class="w"> </span><span class="nv">cat</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nv">page</span><span class="p">.</span><span class="nv">category</span><span class="w"> </span><span class="p">%}</span>
+<span class="p">{%</span><span class="w"> </span><span class="nt">for</span><span class="w"> </span><span class="nv">post</span><span class="w"> </span><span class="nt">in</span><span class="w"> </span><span class="nv">site.categories[cat]</span><span class="w"> </span><span class="p">%}</span>
+    <span class="p">{%</span><span class="w"> </span><span class="kr">if</span><span class="w"> </span><span class="nv">post</span><span class="p">.</span><span class="nv">url</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="nv">page</span><span class="p">.</span><span class="nv">url</span><span class="w"> </span><span class="p">%}</span>
+        <span class="p">{%</span><span class="w"> </span><span class="nt">assign</span><span class="w"> </span><span class="nv">post_index0</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">forloop.index0</span><span class="w"> </span><span class="p">%}</span>
+        <span class="p">{%</span><span class="w"> </span><span class="nt">assign</span><span class="w"> </span><span class="nv">post_index1</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">forloop.index</span><span class="w"> </span><span class="p">%}</span>
+    <span class="p">{%</span><span class="w"> </span><span class="kr">endif</span><span class="w"> </span><span class="p">%}</span>
+<span class="p">{%</span><span class="w"> </span><span class="nt">endfor</span><span class="w"> </span><span class="p">%}</span>
+<span class="p">{%</span><span class="w"> </span><span class="nt">for</span><span class="w"> </span><span class="nv">post</span><span class="w"> </span><span class="nt">in</span><span class="w"> </span><span class="nv">site.categories[cat]</span><span class="w"> </span><span class="p">%}</span>
+    <span class="p">{%</span><span class="w"> </span><span class="kr">if</span><span class="w"> </span><span class="nv">post_index0</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="nb">forloop.index</span><span class="w"> </span><span class="p">%}</span>
+        <span class="p">{%</span><span class="w"> </span><span class="nt">assign</span><span class="err">
+</span><span class="nv">next_post</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nv">post</span><span class="w"> </span><span class="p">%}</span>
+    <span class="p">{%</span><span class="w"> </span><span class="kr">endif</span><span class="w"> </span><span class="p">%}</span>
+    <span class="p">{%</span><span class="w"> </span><span class="kr">if</span><span class="w"> </span><span class="nv">post_index1</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="nb">forloop.index0</span><span class="w"> </span><span class="p">%}</span>
+        <span class="p">{%</span><span class="w"> </span><span class="nt">assign</span><span class="w"> </span><span class="nv">prev_post</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nv">post</span><span class="w"> </span><span class="p">%}</span>
+    <span class="p">{%</span><span class="w"> </span><span class="kr">endif</span><span class="w"> </span><span class="p">%}</span>
+<span class="p">{%</span><span class="w"> </span><span class="nt">endfor</span><span class="w"> </span><span class="p">%}</span>
+
+
+&lt;article class="post h-entry" itemscope itemtype="http://schema.org/BlogPosting"&gt;
+    &lt;header class="post-header"&gt;
+        &lt;h1 class="post-title p-name" itemprop="name headline"&gt;<span class="p">{{</span><span class="w"> </span><span class="nv">page</span><span class="p">.</span><span class="nv">title</span><span class="w"> </span><span class="p">|</span><span class="w"> </span><span class="nf">escape</span><span class="w"> </span><span class="p">}}</span>&lt;/h1&gt;
+    &lt;/header&gt;
+
+    
+    <span class="p">{%</span><span class="w"> </span><span class="kr">if</span><span class="w"> </span><span class="nv">prev_post</span><span class="w"> </span><span class="p">%}</span>
+        &lt;div class="article-previous"&gt;
+            &lt;a href="<span class="p">{{</span><span class="w"> </span><span class="nv">prev_post</span><span class="p">.</span><span class="nv">url</span><span class="w"> </span><span class="p">}}</span>"&gt;
+                &lt;span class="iconify-inline" data-icon="akar-icons:arrow-left"&gt;&lt;/span&gt;
+                &amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;<span class="p">{{</span><span class="w"> </span><span class="nv">prev_post</span><span class="p">.</span><span class="nv">title</span><span class="w"> </span><span class="p">}}</span>&lt;/a&gt;
+        &lt;/div&gt;
+    <span class="p">{%</span><span class="w"> </span><span class="kr">endif</span><span class="w"> </span><span class="p">%}</span>
+    <span class="p">{%</span><span class="w"> </span><span class="kr">if</span><span class="w"> </span><span class="nv">next_post</span><span class="w"> </span><span class="p">%}</span>
+        &lt;div class="article-next"&gt;
+            &lt;a href="<span class="p">{{</span><span class="w"> </span><span class="nv">next_post</span><span class="p">.</span><span class="nv">url</span><span class="w"> </span><span class="p">}}</span>"&gt;
+                <span class="p">{{</span><span class="w"> </span><span class="nv">next_post</span><span class="p">.</span><span class="nv">title</span><span class="w"> </span><span class="p">}}</span>&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;
+                &lt;span class="iconify-inline" data-icon="akar-icons:arrow-right"&gt;&lt;/span&gt;
+            &lt;/a&gt;
+        &lt;/div&gt;
+    <span class="p">{%</span><span class="w"> </span><span class="kr">endif</span><span class="w"> </span><span class="p">%}</span>
+    
+    &lt;div class="post-content e-content" itemprop="articleBody"&gt;<span class="p">{{</span><span class="w"> </span><span class="nv">content</span><span class="w"> </span><span class="p">}}</span>&lt;/div&gt;
+
+    
+    <span class="p">{%-</span><span class="w"> </span><span class="kr">if</span><span class="w"> </span><span class="nv">site</span><span class="p">.</span><span class="nv">disqus</span><span class="p">.</span><span class="nv">shortname</span><span class="w"> </span><span class="p">-%}</span>
+        <span class="p">{%-</span><span class="w"> </span><span class="nt">include</span><span class="w"> </span>disqus_comments.html<span class="w"> </span><span class="p">-%}</span>
+    <span class="p">{%-</span><span class="w"> </span><span class="kr">endif</span><span class="w"> </span><span class="p">-%}</span>
+    
+    &lt;a class="u-url" href="<span class="p">{{</span><span class="w"> </span><span class="nv">page</span><span class="p">.</span><span class="nv">url</span><span class="w"> </span><span class="p">|</span><span class="w"> </span><span class="nf">relative_url</span><span class="w"> </span><span class="p">}}</span>"&gt;&lt;/a&gt;
+&lt;/article&gt;
+
+
+<span class="p">{%</span><span class="w"> </span><span class="kr">if</span><span class="w"> </span><span class="nv">prev_post</span><span class="w"> </span><span class="p">%}</span>
+    &lt;div class="article-previous"&gt;
+        &lt;a href="<span class="p">{{</span><span class="w"> </span><span class="nv">prev_post</span><span class="p">.</span><span class="nv">url</span><span class="w"> </span><span class="p">}}</span>"&gt;
+            &lt;span class="iconify-inline" data-icon="akar-icons:arrow-left"&gt;&lt;/span&gt;
+            &amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;<span class="p">{{</span><span class="w"> </span><span class="nv">prev_post</span><span class="p">.</span><span class="nv">title</span><span class="w"> </span><span class="p">}}</span>&lt;/a&gt;
+    &lt;/div&gt;
+<span class="p">{%</span><span class="w"> </span><span class="kr">endif</span><span class="w"> </span><span class="p">%}</span>
+<span class="p">{%</span><span class="w"> </span><span class="kr">if</span><span class="w"> </span><span class="nv">next_post</span><span class="w"> </span><span class="p">%}</span>
+    &lt;div class="article-next"&gt;
+        &lt;a href="<span class="p">{{</span><span class="w"> </span><span class="nv">next_post</span><span class="p">.</span><span class="nv">url</span><span class="w"> </span><span class="p">}}</span>"&gt;
+            <span class="p">{{</span><span class="w"> </span><span class="nv">next_post</span><span class="p">.</span><span class="nv">title</span><span class="w"> </span><span class="p">}}</span>&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;
+            &lt;span class="iconify-inline" data-icon="akar-icons:arrow-right"&gt;&lt;/span&gt;
+        &lt;/a&gt;
+    &lt;/div&gt;
+<span class="p">{%</span><span class="w"> </span><span class="kr">endif</span><span class="w"> </span><span class="p">%}</span>
+
+</code></pre></div></div>
+
+<h2 id="add-style-for-nextprevious-post-link">Add style for next/previous post link</h2>
+<ol>
+  <li>
+    <p>Create a <code class="language-plaintext highlighter-rouge">_sass</code> folder under <code class="language-plaintext highlighter-rouge">docs</code> folder.</p>
+  </li>
+  <li>
+    <p>Create a <code class="language-plaintext highlighter-rouge">_pager.scss</code> file under <code class="language-plaintext highlighter-rouge">_sass</code> folder with the following code:
+```css
+.article-previous,
+.article-next {
+  display: inline;
+  a {
+ text-decoration: none;
+  }
+}</p>
+  </li>
+</ol>
+
+<p>.article-next {
+  float: right;
+}</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>3. Create `css` folder under `assets` folder.
+
+4. Create `styles.scss` file under `css` folder with the following code:
+```css
+---
+---
+
+@import "pager";
+</code></pre></div></div>
+
+<ol>
+  <li>Add the following code at the end of <code class="language-plaintext highlighter-rouge">_config.yml</code> file:
+    <pre><code class="language-YAML">sass:
+  sass_dir: _sass
+</code></pre>
+  </li>
+  <li>Add the following code to <code class="language-plaintext highlighter-rouge">default.html</code> file:
+```HTML</li>
+</ol>
+<link rel="stylesheet" type="text/css" href="/assets/css/styles.css" />
+
+<p>```</p>
+
+<ol>
+  <li>Finally we will get the result.<br />
+<img src="../../assets/img/github-pages-and-jekyll/shot_211018_225404.png" alt="shot_211018_225404" /></li>
+</ol>
+
+<h2 id="reference">Reference</h2>
+<ul>
+  <li><a href="https://jekyllrb.com/docs/themes/#overriding-theme-defaults">Overriding theme defaults</a></li>
+</ul>
+</div><a class="u-url" href="/github-pages-and-jekyll/next-previous-post-in-category"></a>
+</article>
+
+
+    <div class="article-previous">
+        <a href="/github-pages-and-jekyll/github-actions">
+            <span class="iconify-inline" data-icon="akar-icons:arrow-left"></span>
+            &nbsp;&nbsp;&nbsp;&nbsp;GitHub Actions</a>
+    </div>
+
+
+            </div>
+        </main><footer class="site-footer h-card">
+  <data class="u-url" href="/"></data>
+
+  <div class="wrapper">
+
+    <h2 class="footer-heading">Quang&#39;s Tech Blog</h2>
+
+    <div class="footer-col-wrapper">
+      <div class="footer-col footer-col-1">
+        <ul class="contact-list">
+          <li class="p-name">Quang&#39;s Tech Blog</li><li><a class="u-email" href="mailto:quang.sunlight@gmail.com">quang.sunlight@gmail.com</a></li></ul>
+      </div>
+
+      <div class="footer-col footer-col-2"><ul class="social-media-list"><li><a href="https://www.facebook.com/QuangSunlight"><svg class="svg-icon"><use xlink:href="/assets/minima-social-icons.svg#facebook"></use></svg> <span class="username">QuangSunlight</span></a></li><li><a href="https://github.com/nhatquang-sl"><svg class="svg-icon"><use xlink:href="/assets/minima-social-icons.svg#github"></use></svg> <span class="username">nhatquang-sl</span></a></li></ul>
+</div>
+
+      <div class="footer-col footer-col-3">
+        <p>My notes about technical that I learned.</p>
+      </div>
+    </div>
+
+  </div>
+
+</footer>
+</body>
+    <script src="https://code.iconify.design/2/2.0.3/iconify.min.js"></script>
+</html>
